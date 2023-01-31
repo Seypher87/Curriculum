@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>BSOD</title>
+  <link rel="stylesheet" href="./CSS/Style2.css">
+</head>
+<body>
+  <div id="page">
+    <div id="container">
+      <h1>:(</h1>
+      <h2>Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.</h2>
+      <h2>
+        <span id="percentage">0</span>% complete</h2>
+      <div id="details">
+        <div id="qr">
+          <div id="image">
+            <img src="qr.png" alt="QR Code" />
+          </div>
+        </div>
+        <div id="stopcode">
+          <h4>For more information about this issue and possible fixes, please scan qr code
+            <br/>http://windows.com/stopcode</h4>
+          <h5>What failed: AcmeVideo.sys
+            <br/>Stop Code: PAGE_FAULT_IN_NONPAGE_AREA</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  var percentageElement = document.getElementById("percentage");
+  var percentage = 0;
+
+  function process() {
+    percentage += parseInt(Math.random() * 10);
+    if (percentage > 100) {
+      percentage = 100;
+    }
+    percentageElement.innerText = percentage;
+    processInterval();
+  }
+
+  function processInterval() {
+    setTimeout(process, Math.random() * (1000 - 500) + 500)
+  }
+  processInterval();
+</script>
+</html>
